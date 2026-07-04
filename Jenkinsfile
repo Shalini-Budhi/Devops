@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh '''@Library(\'pipeline-library-demo\')_
 
@@ -9,6 +9,7 @@ pipeline {
      echo \'Hello world\'
      sayHello \'Alex\'
  }'''
+        build(job: 'new', quietPeriod: -1, waitForStart: true)
       }
     }
 
